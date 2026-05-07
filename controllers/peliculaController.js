@@ -1,6 +1,6 @@
 const Pelicula = require('../models/Pelicula');
 
-// GET: Obtener todas las películas
+// GET
 exports.obtenerPeliculas = async (req, res) => {
     try {
         const peliculas = await Pelicula.find();
@@ -10,7 +10,7 @@ exports.obtenerPeliculas = async (req, res) => {
     }
 };
 
-// POST: Crear una nueva película
+// POST
 exports.crearPelicula = async (req, res) => {
     try {
         const nuevaPelicula = new Pelicula(req.body);
@@ -21,7 +21,7 @@ exports.crearPelicula = async (req, res) => {
     }
 };
 
-// PUT: Actualizar una película
+// PUT
 exports.actualizarPelicula = async (req, res) => {
     try {
         const peliculaEditada = await Pelicula.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -31,7 +31,7 @@ exports.actualizarPelicula = async (req, res) => {
     }
 };
 
-// DELETE: Eliminar una película
+// DELETE
 exports.eliminarPelicula = async (req, res) => {
     try {
         await Pelicula.findByIdAndDelete(req.params.id);
